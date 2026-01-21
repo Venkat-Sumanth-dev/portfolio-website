@@ -1,0 +1,307 @@
+/* ============================================================
+   STAGE 2.2 — NAVBAR & RESUME SYSTEM
+   Author: Bodapati Venkat Sumanth
+   ============================================================ */
+
+
+/* ============================================================
+   1. HEADER & NAVBAR CONTAINER
+   ============================================================ */
+
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-navbar);
+  pointer-events: none;
+}
+
+#main-navbar {
+  pointer-events: auto;
+  width: 100%;
+  padding: var(--space-md) var(--space-2xl);
+  display: flex;
+  justify-content: center;
+  transition:
+    background var(--transition-medium) var(--ease-standard),
+    backdrop-filter var(--transition-medium) var(--ease-standard),
+    box-shadow var(--transition-medium) var(--ease-standard),
+    border var(--transition-medium) var(--ease-standard);
+}
+
+
+/* ============================================================
+   2. NAVBAR INNER LAYOUT
+   ============================================================ */
+
+.navbar-container {
+  width: 100%;
+  max-width: 1600px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+/* LEFT / CENTER / RIGHT */
+.navbar-section {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left {
+  justify-content: flex-start;
+}
+
+.navbar-center {
+  justify-content: center;
+}
+
+.navbar-right {
+  justify-content: flex-end;
+}
+
+
+/* ============================================================
+   3. BRAND / LOGO
+   ============================================================ */
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.brand-text {
+  font-family: var(--font-secondary);
+  font-size: var(--fs-lg);
+  letter-spacing: 0.2em;
+  color: var(--color-white-900);
+  transition:
+    color var(--transition-medium) var(--ease-standard),
+    text-shadow var(--transition-medium) var(--ease-standard);
+}
+
+.brand-text:hover {
+  color: var(--current-accent);
+  text-shadow: var(--current-glow);
+}
+
+
+/* ============================================================
+   4. PHASE INDICATOR (CENTER)
+   ============================================================ */
+
+.phase-indicator-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.phase-indicator-label {
+  font-size: var(--fs-xs);
+  color: var(--color-white-700);
+  letter-spacing: 0.12em;
+}
+
+.phase-indicator-value {
+  font-family: var(--font-secondary);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.25em;
+  color: var(--current-accent);
+  text-shadow: var(--current-glow);
+}
+
+
+/* ============================================================
+   5. NAVIGATION LINKS
+   ============================================================ */
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item a {
+  font-size: var(--fs-sm);
+  letter-spacing: 0.12em;
+  color: var(--color-white-800);
+  padding: var(--space-xs) 0;
+  transition:
+    color var(--transition-fast) var(--ease-standard),
+    transform var(--transition-fast) var(--ease-standard);
+}
+
+/* Hover */
+.nav-item a:hover {
+  color: var(--current-accent);
+  transform: translateY(-2px);
+}
+
+/* Underline Animation */
+.nav-item a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: var(--current-accent);
+  transform: translateX(-50%);
+  transition: width var(--transition-medium) var(--ease-smooth);
+}
+
+.nav-item a:hover::after {
+  width: 100%;
+}
+
+
+/* ============================================================
+   6. GLASSMORPHISM STATES
+   ============================================================ */
+
+/* Default (top of page) */
+body:not(.scrolled) #main-navbar {
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  border-bottom: 1px solid transparent;
+}
+
+/* Scrolled State (added via JS later) */
+body.scrolled #main-navbar {
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur-mid);
+  border-bottom: 1px solid var(--glass-border-light);
+  box-shadow: var(--shadow-soft);
+}
+
+
+/* ============================================================
+   7. PHASE-AWARE NAVBAR VARIANTS
+   ============================================================ */
+
+body[data-phase="designer"] #main-navbar {
+  --navbar-accent: var(--color-designer-accent);
+}
+
+body[data-phase="developer"] #main-navbar {
+  --navbar-accent: var(--color-developer-accent);
+}
+
+body[data-phase="gamer"] #main-navbar {
+  --navbar-accent: var(--color-gamer-accent);
+}
+
+
+/* ============================================================
+   8. RESUME FLOATING SYSTEM
+   ============================================================ */
+
+#resume-system {
+  position: fixed;
+  right: var(--space-xl);
+  bottom: var(--space-xl);
+  z-index: var(--z-resume);
+}
+
+.resume-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Resume Button */
+.resume-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+
+  font-size: var(--fs-sm);
+  letter-spacing: 0.12em;
+
+  color: var(--color-white-900);
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur-mid);
+
+  border: 1px solid var(--glass-border-light);
+  border-radius: var(--radius-full);
+
+  box-shadow: var(--shadow-soft);
+
+  transition:
+    transform var(--transition-medium) var(--ease-smooth),
+    box-shadow var(--transition-medium) var(--ease-smooth),
+    background var(--transition-medium) var(--ease-smooth);
+}
+
+/* Hover Effect */
+.resume-link:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--current-glow);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Icon */
+.resume-icon {
+  font-size: var(--fs-md);
+  color: var(--current-accent);
+}
+
+/* Text */
+.resume-text {
+  font-weight: var(--fw-medium);
+}
+
+
+/* ============================================================
+   9. RESUME PHASE-AWARE COLORS
+   ============================================================ */
+
+body[data-phase="designer"] .resume-link {
+  border-color: rgba(179, 92, 255, 0.4);
+}
+
+body[data-phase="developer"] .resume-link {
+  border-color: rgba(63, 169, 245, 0.4);
+}
+
+body[data-phase="gamer"] .resume-link {
+  border-color: rgba(255, 42, 42, 0.5);
+}
+
+
+/* ============================================================
+   10. MOBILE / REDUCED UI FALLBACKS
+   ============================================================ */
+
+@media (max-width: 1024px) {
+
+  #main-navbar {
+    padding: var(--space-md);
+  }
+
+  .navbar-center {
+    display: none;
+  }
+
+  .navbar-links {
+    gap: var(--space-lg);
+  }
+
+  #resume-system {
+    right: var(--space-md);
+    bottom: var(--space-md);
+  }
+}
+
+
+/* ============================================================
+   END OF STAGE 2.2
+   ============================================================ */

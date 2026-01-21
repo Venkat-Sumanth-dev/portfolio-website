@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ========================================================= -->
+<!-- ======================= DOCUMENT ======================== -->
+<!-- ========================================================= -->
+
+<!-- =================== BASIC META =================== -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <title>
+    Bodapati Venkat Sumanth | Designer · Developer · Gamer
+  </title>
+
+  <!-- =================== SEO META =================== -->
+  <meta name="description"
+        content="Official portfolio of Bodapati Venkat Sumanth — Designer, Front-End Developer, Gamer. Explore skills, experience, projects, and creative identity.">
+
+  <meta name="keywords"
+        content="Bodapati Venkat Sumanth, Frontend Developer, UI Designer, JavaScript, HTML, CSS, Portfolio">
+
+  <meta name="author"
+        content="Bodapati Venkat Sumanth">
+
+  <!-- =================== SOCIAL META =================== -->
+  <meta property="og:title"
+        content="Bodapati Venkat Sumanth Portfolio">
+
+  <meta property="og:description"
+        content="Designer · Developer · Gamer — Explore my journey.">
+
+  <meta property="og:type"
+        content="website">
+
+  <meta property="og:url"
+        content="https://yourdomain.com">
+
+  <meta property="og:image"
+        content="assets/preview.png">
+
+  <!-- =================== PERFORMANCE =================== -->
+  <meta name="theme-color" content="#000000">
+
+  <!-- =================== GOOGLE FONTS =================== -->
+  <!-- Inter (Primary UI Font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <!-- Orbitron (Phase / Accent Font) -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+  <!-- =================== CORE CSS =================== -->
+  <!-- ORDER MATTERS -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/phase-layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<!-- ========================================================= -->
+<!-- ========================= BODY =========================== -->
+<!-- ========================================================= -->
+
+<body data-theme="dark"
+      data-page="home"
+      data-phase="designer">
+
+  <!-- ========================================================= -->
+  <!-- ================== GLOBAL UI LAYERS ==================== -->
+  <!-- ========================================================= -->
+
+  <!-- ===== Custom Cursor System ===== -->
+  <div id="cursor-layer">
+
+    <div id="cursor-dot"
+         aria-hidden="true"></div>
+
+    <div id="cursor-ring"
+         aria-hidden="true"></div>
+
+  </div>
+
+  <!-- ===== Particle Canvas (Background) ===== -->
+  <canvas id="particle-canvas"
+          aria-hidden="true"></canvas>
+
+  <!-- ========================================================= -->
+  <!-- ===================== NAVIGATION ======================= -->
+  <!-- ========================================================= -->
+
+  <header id="site-header"
+          role="banner">
+
+    <nav id="main-navbar"
+         role="navigation"
+         aria-label="Primary Navigation">
+
+      <!-- ===== LEFT: BRAND ===== -->
+      <div class="navbar-section navbar-left">
+
+        <div class="brand-wrapper">
+          <span class="brand-text">
+            BODAPATI VENKAT SUMANTH
+          </span>
+        </div>
+
+      </div>
+      
+
+      <!-- ===== CENTER: PHASE INDICATOR ===== -->
+      <div class="navbar-section navbar-center">
+
+        <div class="phase-indicator-wrapper">
+
+          <span class="phase-indicator-label">
+            CURRENT ROLE
+          </span>
+
+          <span class="phase-indicator-value"
+                data-phase-indicator>
+            Developer 
+          </span>
+
+        </div>
+
+      </div>
+
+      <!-- ===== RIGHT: NAV LINKS ===== -->
+      <div class="navbar-section navbar-right">
+
+        <ul class="navbar-links">
+
+          <li class="nav-item">
+            <a href="#phase-designer"
+               data-nav="designer">
+              Designer
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#phase-developer"
+               data-nav="developer">
+              Developer
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#phase-gamer"
+               data-nav="gamer">
+              Gamer
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="skills.html"
+               data-nav="skills">
+              Skills
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#experience"
+               data-nav="experience">
+              Experience
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#projects"
+               data-nav="projects">
+              Projects
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#contact"
+               data-nav="contact">
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- ===================== RESUME SYSTEM ==================== -->
+  <!-- ========================================================= -->
+
+  <aside id="resume-system"
+         role="complementary"
+         aria-label="Resume Download">
+
+    <div class="resume-container">
+
+      <a href="assets/BODAPATI_VENKAT_SUMANTH_RESUME.pdf"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="resume-link">
+
+        <span class="resume-icon">📄</span>
+
+        <span class="resume-text">
+          Resume
+        </span>
+
+      </a>
+
+    </div>
+
+  </aside>
+
+  <!-- ========================================================= -->
+  <!-- ==================== INTRO SECTION ===================== -->
+  <!-- ========================================================= -->
+
+  <section id="intro-section"
+           class="full-screen-section"
+           data-section="intro">
+
+    <div class="intro-inner">
+
+      <div class="intro-text">
+
+        <h1 class="intro-heading">
+          Hello, I’m
+        </h1>
+
+        <h2 class="intro-name">
+          Bodapati Venkat Sumanth
+        </h2>
+
+        <p class="intro-subtitle">
+          Designer · Developer · Gamer
+        </p>
+
+      </div>
+
+      <div class="intro-scroll-hint">
+
+        <span class="scroll-text">
+          Scroll Down
+        </span>
+
+        <span class="scroll-arrow">
+          ↓
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- ==================== PHASE: DESIGNER =================== -->
+  <!-- ========================================================= -->
+
+  <section id="phase-designer" class="phase-section designer-phase">
+  <div class="phase-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="phase-content">
+      <h2 class="phase-title">DESIGNER</h2>
+
+      <p class="phase-description">
+        I love designing clean, modern user interfaces and immersive
+        digital experiences that combine creativity with usability.
+      </p>
+
+      <a href="skills.html" class="phase-action-btn">
+        View Skills
+      </a>
+    </div>
+
+    <!-- RIGHT VISUAL -->
+    <div class="phase-visual">
+      <div class="hero-figure no-hover">
+        <img src="assets/Designer.png" alt="Designer Avatar">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- ========================================================= -->
+  <!-- =================== PHASE: DEVELOPER =================== -->
+  <!-- ========================================================= -->
+
+  <section id="phase-developer"
+           class="phase-section developer-phase"
+           data-phase="developer"
+           data-particles="blue">
+
+    <div class="phase-container">
+
+      <div class="phase-content phase-content-left">
+
+        <header class="phase-header">
+
+          <h1 class="phase-title">
+            DEVELOPER
+          </h1>
+
+          <p class="phase-tagline">
+            Engineering interactive experiences.
+          </p>
+
+        </header>
+
+        <article class="phase-description">
+
+          <p>
+            As a Front-End Developer, I build performant,
+            scalable, and interactive web applications.
+          </p>
+
+          <p>
+            I work extensively with HTML, CSS, JavaScript,
+            APIs, and debugging production issues.
+          </p>
+
+        </article>
+
+        <section class="phase-skills-summary"
+                 aria-label="Developer Skills">
+
+          <ul class="skills-list">
+
+            <li>HTML5 / CSS3 / JavaScript</li>
+            <li>DOM Manipulation</li>
+            <li>REST API Integration</li>
+            <li>Debugging & RCA</li>
+            <li>UI Performance Optimization</li>
+
+          </ul>
+
+        </section>
+
+        <div class="phase-actions">
+
+          <a href="skills.html"
+             class="phase-action-link">
+            View Development Skills
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="phase-visual phase-visual-right">
+
+        <figure class="hero-figure">
+
+          <img src="assets/Developer.png"
+               alt="Developer Avatar"
+               loading="lazy">
+
+          <figcaption>
+            Developer Phase Visual
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- ================== TRANSITION SECTION ================== -->
+  <!-- ========================================================= -->
+
+  <section class="phase-transition"
+           data-transition="developer-to-gamer">
+
+    <div class="transition-inner">
+
+      <p class="transition-text">
+        Logic transforms into intensity
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- ===================== PHASE: GAMER ===================== -->
+  <!-- ========================================================= -->
+
+  <section id="phase-gamer"
+           class="phase-section gamer-phase"
+           data-phase="gamer"
+           data-particles="red">
+
+    <div class="phase-container">
+
+      <div class="phase-content phase-content-left">
+
+        <header class="phase-header">
+
+          <h1 class="phase-title">
+            GAMER
+          </h1>
+
+          <p class="phase-tagline">
+            Precision, focus, and competitive mindset.
+          </p>
+
+        </header>
+
+        <article class="phase-description">
+
+          <p>
+            Gaming sharpened my reaction time,
+            strategic thinking, and ability to perform under pressure.
+          </p>
+
+          <p>
+            These skills directly translate into problem-solving
+            and decision-making in development.
+          </p>
+
+        </article>
+
+        <section class="phase-skills-summary"
+                 aria-label="Gamer Traits">
+
+          <ul class="skills-list">
+
+            <li>Fast Decision Making</li>
+            <li>Strategic Thinking</li>
+            <li>High Focus</li>
+            <li>Competitive Discipline</li>
+
+          </ul>
+
+        </section>
+
+        <div class="phase-actions">
+
+          <a href="skills.html"
+             class="phase-action-link">
+            View Gaming Skills
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="phase-visual phase-visual-right">
+
+        <figure class="hero-figure">
+
+          <img src="assets/Gamer.png"
+               alt="Gamer Avatar"
+               loading="lazy">
+
+          <figcaption>
+            Gamer Phase Visual
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- ====================== EXPERIENCE ====================== -->
+  <!-- ========================================================= -->
+
+  <section id="experience"
+           class="content-section">
+
+    <header class="section-header">
+      <h2>Experience</h2>
+    </header>
+
+    <div class="experience-timeline">
+
+      <article class="experience-item">
+
+        <h3>Product Support Engineer</h3>
+        <h4>MCUBE Cloud Telephony Services</h4>
+        <span class="experience-duration">
+          Aug 2024 – Present
+        </span>
+
+        <p>
+          Supporting cloud-based SaaS products,
+          handling UI issues, live production fixes,
+          and collaborating with cross-functional teams.
+        </p>
+
+      </article>
+
+      <article class="experience-item">
+
+        <h3>Intern</h3>
+        <h4>PIL Gaming Solutions</h4>
+        <span class="experience-duration">
+          8 Months
+        </span>
+
+        <p>
+          Worked on game UI logic, performance improvements,
+          and player experience optimization.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- ======================= PROJECTS ======================= -->
+  <!-- ========================================================= -->
+
+  <section id="projects"
+           class="content-section">
+
+    <header class="section-header">
+      <h2>Projects</h2>
+    </header>
+
+    <div class="projects-grid">
+
+      <article class="project-card">
+        <h3>Personal Portfolio & Blog</h3>
+        <p>
+          Responsive portfolio showcasing resume,
+          skills, projects, and interactive UI components.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <h3>Eyeball Cursor Control (OpenCV)</h3>
+        <p>
+          Real-time cursor control using eye tracking
+          with computer vision and machine learning.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <h3>SEO Optimization Project</h3>
+        <p>
+          Improved website visibility and traffic
+          through SEO strategies and analysis.
+        </p>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- ======================== CONTACT ======================= -->
+  <!-- ========================================================= -->
+
+  <section id="contact"
+           class="content-section">
+
+    <header class="section-header">
+      <h2>Contact</h2>
+    </header>
+
+    <address class="contact-details">
+
+      <p>
+        Email:
+        <a href="mailto:venkatsumanth9848@gmail.com">
+          venkatsumanth9848@gmail.com
+        </a>
+      </p>
+
+      <p>
+        Location:
+        Hyderabad, India
+      </p>
+
+      <p>
+        Languages:
+        English, Hindi, Telugu
+      </p>
+
+    </address>
+
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- ======================== FOOTER ======================== -->
+  <!-- ========================================================= -->
+
+  <footer id="site-footer">
+
+    <div class="footer-inner">
+
+      <p>
+        © 2025 Bodapati Venkat Sumanth.
+        All rights reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>

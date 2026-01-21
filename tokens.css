@@ -1,0 +1,274 @@
+/* ============================================================
+   DESIGN TOKENS & FOUNDATIONS
+   Author: Bodapati Venkat Sumanth
+   Stage: 2.1
+   Purpose: Global system variables, resets, base rules
+   ============================================================ */
+
+
+/* ============================================================
+   1. CSS RESET & NORMALIZATION
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  background-color: var(--color-black-900);
+  color: var(--color-white-900);
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+address {
+  font-style: normal;
+}
+
+/* ============================================================
+   2. ROOT DESIGN TOKENS
+   ============================================================ */
+
+:root {
+
+  /* ---------------------------
+     BRAND CORE COLORS
+     --------------------------- */
+
+  --color-black-900: #000000;
+  --color-black-800: #0a0a0a;
+  --color-black-700: #111111;
+  --color-black-600: #1a1a1a;
+
+  --color-white-900: #ffffff;
+  --color-white-800: #e6e6e6;
+  --color-white-700: #cccccc;
+
+  /* Primary Red (Brand Identity) */
+  --color-red-900: #e50914;
+  --color-red-800: #c40812;
+  --color-red-700: #a3060f;
+
+  /* Phase Accent Colors */
+  --color-designer-accent: #b35cff; /* purple */
+  --color-developer-accent: #3fa9f5; /* blue */
+  --color-gamer-accent: #ff2a2a; /* intense red */
+
+  /* ---------------------------
+     TRANSPARENCY & GLASS
+     --------------------------- */
+
+  --glass-bg-light: rgba(255, 255, 255, 0.08);
+  --glass-bg-dark: rgba(0, 0, 0, 0.35);
+
+  --glass-border-light: rgba(255, 255, 255, 0.15);
+  --glass-border-dark: rgba(0, 0, 0, 0.45);
+
+  --glass-blur-low: blur(6px);
+  --glass-blur-mid: blur(12px);
+  --glass-blur-high: blur(20px);
+
+  /* ---------------------------
+     SHADOW SYSTEM
+     --------------------------- */
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --shadow-heavy: 0 40px 80px rgba(0, 0, 0, 0.7);
+
+  --shadow-glow-red: 0 0 40px rgba(229, 9, 20, 0.6);
+  --shadow-glow-blue: 0 0 40px rgba(63, 169, 245, 0.6);
+  --shadow-glow-purple: 0 0 40px rgba(179, 92, 255, 0.6);
+
+  /* ---------------------------
+     TYPOGRAPHY SYSTEM
+     --------------------------- */
+
+  --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-secondary: 'Orbitron', sans-serif;
+
+  /* Font Sizes (Fluid-ready) */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: 2.5rem;
+  --fs-3xl: 3.5rem;
+  --fs-4xl: 4.5rem;
+
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---------------------------
+     SPACING SCALE
+     --------------------------- */
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* ---------------------------
+     BORDER RADIUS SYSTEM
+     --------------------------- */
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-full: 999px;
+
+  /* ---------------------------
+     Z-INDEX LAYERS
+     --------------------------- */
+
+  --z-background: 0;
+  --z-particles: 1;
+  --z-content: 10;
+  --z-navbar: 100;
+  --z-resume: 150;
+  --z-cursor: 999;
+  --z-modal: 1000;
+
+  /* ---------------------------
+     TRANSITIONS & EASING
+     --------------------------- */
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --ease-aggressive: cubic-bezier(0.7, 0, 0.3, 1);
+
+  --transition-fast: 0.2s;
+  --transition-medium: 0.4s;
+  --transition-slow: 0.8s;
+}
+
+/* ============================================================
+   3. PHASE-SPECIFIC CSS VARIABLES
+   (Will be toggled via body[data-phase])
+   ============================================================ */
+
+body[data-phase="designer"] {
+  --current-accent: var(--color-designer-accent);
+  --current-glow: var(--shadow-glow-purple);
+}
+
+body[data-phase="developer"] {
+  --current-accent: var(--color-developer-accent);
+  --current-glow: var(--shadow-glow-blue);
+}
+
+body[data-phase="gamer"] {
+  --current-accent: var(--color-gamer-accent);
+  --current-glow: var(--shadow-glow-red);
+}
+
+/* ============================================================
+   4. GLOBAL UTILITY CLASSES
+   ============================================================ */
+
+.u-hidden {
+  display: none !important;
+}
+
+.u-flex {
+  display: flex;
+}
+
+.u-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-uppercase {
+  text-transform: uppercase;
+}
+
+.u-glass {
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur-mid);
+  border: 1px solid var(--glass-border-light);
+}
+
+/* ============================================================
+   5. ACCESSIBILITY HELPERS
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--current-accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* ===== DISABLE PHASE IMAGE GLOW ===== */
+.hero-figure::before {
+  background: none !important;
+  filter: none !important;
+  opacity: 0 !important;
+}
+
+
+/* ============================================================
+   END OF STAGE 2.1
+   ============================================================ */

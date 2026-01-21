@@ -1,0 +1,293 @@
+/* ============================================================
+   STAGE 2.4 — ANIMATIONS & MOTION SYSTEM
+   ============================================================ */
+
+
+/* ============================================================
+   1. GLOBAL ANIMATION DEFAULTS
+   ============================================================ */
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity var(--transition-slow) var(--ease-smooth),
+    transform var(--transition-slow) var(--ease-smooth);
+  will-change: opacity, transform;
+}
+
+/* Activated via JS on scroll */
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   2. INTRO CINEMATIC ENTRANCE
+   ============================================================ */
+
+#intro-section .intro-heading,
+#intro-section .intro-name,
+#intro-section .intro-subtitle {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: introFadeUp 1.2s var(--ease-smooth) forwards;
+}
+
+#intro-section .intro-name {
+  animation-delay: 0.3s;
+}
+
+#intro-section .intro-subtitle {
+  animation-delay: 0.6s;
+}
+
+@keyframes introFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================================
+   3. PHASE SECTION REVEAL
+   ============================================================ */
+
+.phase-section .phase-title,
+.phase-section .phase-tagline,
+.phase-section .phase-description,
+.phase-section .phase-skills-summary,
+.phase-section .phase-actions {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Activated when phase enters viewport */
+.phase-section.is-active .phase-title {
+  animation: phaseFade 0.8s var(--ease-smooth) forwards;
+}
+
+.phase-section.is-active .phase-tagline {
+  animation: phaseFade 0.8s var(--ease-smooth) 0.1s forwards;
+}
+
+.phase-section.is-active .phase-description {
+  animation: phaseFade 0.8s var(--ease-smooth) 0.2s forwards;
+}
+
+.phase-section.is-active .phase-skills-summary {
+  animation: phaseFade 0.8s var(--ease-smooth) 0.35s forwards;
+}
+
+.phase-section.is-active .phase-actions {
+  animation: phaseFade 0.8s var(--ease-smooth) 0.5s forwards;
+}
+
+@keyframes phaseFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================================
+   4. HERO IMAGE FLOAT & PARALLAX READINESS
+   ============================================================ */
+
+.hero-figure {
+  animation: floatIdle 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes floatIdle {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* JS will later add subtle mouse-based transforms */
+
+
+/* ============================================================
+   5. PHASE TRANSITION MOTION
+   ============================================================ */
+
+.phase-transition .transition-text {
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity var(--transition-slow) var(--ease-standard),
+    transform var(--transition-slow) var(--ease-standard);
+}
+
+.phase-transition.is-visible .transition-text {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* ============================================================
+   6. NAVBAR SCROLL MOTION POLISH
+   ============================================================ */
+
+#main-navbar {
+  transition:
+    background var(--transition-medium) var(--ease-standard),
+    backdrop-filter var(--transition-medium) var(--ease-standard),
+    box-shadow var(--transition-medium) var(--ease-standard),
+    transform var(--transition-fast) var(--ease-standard);
+}
+
+/* Slight hide/reveal on scroll down/up (JS hook) */
+body.nav-hidden #main-navbar {
+  transform: translateY(-100%);
+}
+
+body.nav-visible #main-navbar {
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   7. RESUME BUTTON MICRO-ANIMATION
+   ============================================================ */
+
+.resume-link {
+  position: relative;
+  overflow: hidden;
+}
+.hero-figure:hover {
+  box-shadow: none !important;
+}
+
+
+.resume-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+}
+
+.resume-link:hover::after {
+  animation: shine 1.2s ease;
+}
+
+@keyframes shine {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+
+/* ============================================================
+   8. EXPERIENCE & PROJECT CARD ENTRANCE
+   ============================================================ */
+
+.experience-item,
+.project-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity var(--transition-slow) var(--ease-smooth),
+    transform var(--transition-slow) var(--ease-smooth);
+}
+
+.experience-item.is-visible,
+.project-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   9. HOVER DEPTH EFFECTS
+   ============================================================ */
+
+.project-card {
+  transition:
+    transform var(--transition-medium) var(--ease-smooth),
+    box-shadow var(--transition-medium) var(--ease-smooth);
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-heavy);
+}
+
+
+/* ============================================================
+   10. RESPONSIVE MOTION TUNING
+   ============================================================ */
+
+@media (max-width: 1024px) {
+
+  .hero-figure {
+    animation: none;
+  }
+
+  [data-animate] {
+    transform: translateY(20px);
+  }
+
+}
+
+
+/* ============================================================
+   11. ACCESSIBILITY — REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero-figure {
+    transform: none !important;
+  }
+
+}
+/* ===== HARD DISABLE HERO IMAGE HOVER ===== */
+.hero-figure,
+.hero-figure * {
+  transition: none !important;
+}
+
+.hero-figure:hover,
+.hero-figure:hover * {
+  transform: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+
+
+/* ============================================================
+   END OF STAGE 2.4
+   ============================================================ */
